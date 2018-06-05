@@ -1,0 +1,24 @@
+* You suspect your boss is embezzling money, and you would really like to obtain your boss's password to gather evidence. What you do with it is up to you... Luckily, the sysadmin (root account) at your company set the DAC permissions incorrectly on the default Linux password files, and on top of that, accidentally gave a temp worker sudo access by putting him in the sudo group. This temp can now access the password files, and install software from the Debian/Kali repositories easily. After learning this, you made friends with the temp, and came to an arrangement: if the temp will help you get the bosses password, you will write a program that does his job for him, so he can just surf Facebook at work all day. The temp worker does not know how to work "the PuTTY", and he cannot type very fast either, so you can't expect him to type out your commands at the bash terminal. You can teach him enough to execute a singe bash script via the terminal however. You job is to write this bash script, which you can give to your friend the temp worker, that he can execute for you, that does the following: installs any needed software (if it is not already installed) via apt-get, processes the password files, cracks the password for the account "yourboss", outputs the password (and only the password) to the screen, and saves it (and only it) to a file called password.txt in the temp's current bash-executing home directory, then fixes the permissions of the shadow and password files to match the secure Debian defaults, clears the bash history, deletes any log or "dot" / config files created in the process of cracking the password, removes any software you installed, and finally, remove the temp worker from the sudo'ers group, so that no one knows you and the temp worker nabbed the password of your boss. The user tempworker gave you his password so you can include it in the script: "correctbatteryhorsestaple99" (why he has a reasonably good password is a mystery to you...). You can't just use the password at any terminal though, since someone might notice you at the temp's computer, and you don't want evidence that you logged onto his account with your computer. You may also discover that the system administrator's (root) password is ironically weak. Your internet research has discovered the following links about how to perform your task (not all of these will be critical, depending on which tools and methods you choose):
+
+    * https://swcarpentry.github.io/shell-novice/
+    * http://www.linuxcommand.org/lc3_learning_the_shell.php
+    * http://www.linuxcommand.org/lc3_writing_shell_scripts.php
+    * https://www.debian.org/doc/manuals/debian-reference/ch04.en.html#_managing_account_and_password_information
+    * https://www.samsclass.info/123/proj10/p12-hashcat.htm
+    * https://www.blackmoreops.com/2015/11/10/cracking-password-in-kali-linux-using-john-the-ripper/
+    * http://www.yourownlinux.com/2015/08/etc-shadow-file-format-in-linux-explained.html
+    * https://askubuntu.com/questions/448358/automating-apt-get-install-with-assume-yes
+    * https://www.debian.org/doc/manuals/debian-handbook/sect.user-group-databases.en.html
+    * https://wiki.debian.org/sudo
+    * https://unix.stackexchange.com/questions/86748/how-to-properly-configure-sudoers-file-on-debian-wheezy
+    * https://www.linuxquestions.org/questions/linux-general-1/execute-command-as-different-user-63197/
+    * https://stackoverflow.com/questions/11955298/use-sudo-with-password-as-parameter
+    * https://superuser.com/questions/67765/sudo-with-password-in-one-command-line
+    * https://en.wikipedia.org/wiki/Chmod
+
+* To simulate the temp's computer, I have been given you an OVA file, which should be imported by VirtualBox ( https://www.virtualbox.org/ ). You must write your bash script to work in this environment, under the user account: tempworker (password: correctbatteryhorsestaple99). The OVA is here (it is big!): https://drive.google.com/open?id=0B-J2eAFxZBu1ZmlfUi16NGxCeE0
+
+* Since there are many things to learn, you won't necessarily get all "covering your tracks" done, and thus may get caught, but your bash script has to at least get the correct password for a passing grade. If you get the password and output it formatted correctly, you will get an 85. You will get incrementally more points for all the other tasks above and beyond that you complete, for example, repairing the password files permissions will get you several more points, and so on.
+
+* Submit your bash script named as: lastname_studentIDnumber.sh on Canvas
+* You do not need to delete the password.txt or the script itself
